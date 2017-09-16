@@ -5,7 +5,7 @@ from math import hypot
 class Bad_guy(Sprite):
 	def __init__(self,screen):
 		super(Bad_guy,self).__init__()
-		self.image = pygame.image.load('monster1.png')
+		self.image = pygame.image.load('greenguy.png')
 		self.x = 1000
 		self.y = 400
 		self.screen = screen

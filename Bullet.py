@@ -6,7 +6,7 @@ class Bullet(Sprite):
 		super(Bullet, self).__init__()
 		self.screen = screen
 
-		self.rect = pygame.Rect(0,0,5,20)
+		self.rect = pygame.Rect(0,0,5,5) #changes bullet size
 		self.color = (0,0,0)
 		self.rect.centerx = the_player.x
 		self.rect.top = the_player.y
@@ -15,18 +15,18 @@ class Bullet(Sprite):
 		self.x = self.rect.x
 		self.y = self.rect.y
 
-	def update(self):
+	def update(self): #commented out in order to shoot in only one direction(right)
 		if self.direction == 1: #up
-			self.y -= self.speed #change the y, each time update is run, by bullet speed
-			self.rect.y = self.y #update rect position
-		elif self.direction == 2: #right
 			self.x += self.speed #change the y, each time update is run, by bullet speed
 			self.rect.x = self.x #update rect position
-		elif self.direction == 3: #down
-			self.y += self.speed #change the y, each time update is run, by bullet speed
-			self.rect.y = self.y #update rect position
+		# elif self.direction == 2: #right
+		# 	self.x += self.speed #change the y, each time update is run, by bullet speed
+		# 	self.rect.x = self.x #update rect position
+		# elif self.direction == 3: #down
+		# 	self.y -= self.speed #change the y, each time update is run, by bullet speed
+		# 	self.rect.y = self.y #update rect position
 		else: #left
-			self.x -= self.speed #change the y, each time update is run, by bullet speed
+			self.x += self.speed #change the y, each time update is run, by bullet speed
 			self.rect.x = self.x #update rect position
 
 

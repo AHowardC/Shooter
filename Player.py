@@ -8,8 +8,8 @@ class Player(Sprite):
 	# Because this is a subclass, we need to call the parent's (Sprite) __init__
 	def __init__(self,image,start_x,start_y,screen):
 		super(Player,self).__init__()
-		self.image = pygame.image.load(image)
-		self.image = pygame.transform.scale(self.image,(200,200))
+		self.image = pygame.image.load('ironman2.png')
+		# self.image = pygame.transform.scale(self.image,(200,200))
 		self.x = start_x
 		self.y = start_y
 		self.speed = 10
@@ -23,12 +23,20 @@ class Player(Sprite):
 	def draw_me(self):
 		if(self.should_move_up):
 			self.y -= self.speed
+			if self.y <= 0:		#this if conditional makes the character come back on screen
+				self.y = 800
 		elif(self.should_move_down):
 			self.y += self.speed
+			if self.y >= 800:		#same as line 26
+				self.y = 0
 		if(self.should_move_left):
 			self.x -= self.speed
+			if self.x <= 0:			#this if condition makes the character come back on the other side of the screen
+				self.x = 1000
 		elif(self.should_move_right):
 			self.x += self.speed
+			if self.x >= 1000:		#same as line 30
+				self.x = 0
 		self.screen.blit(self.image, [self.x,self.y])
 
 	def should_move(self,direction,yes_or_no):
