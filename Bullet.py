@@ -7,7 +7,7 @@ class Bullet(Sprite):
 		self.screen = screen
 
 		self.rect = pygame.Rect(0,0,5,5) #changes bullet size
-		self.color = (0,0,0)
+		self.color = (255,255,255)	#255 is white 0 is black
 		self.rect.centerx = the_player.x
 		self.rect.top = the_player.y
 		self.speed = 15
